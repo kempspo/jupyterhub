@@ -1,6 +1,6 @@
 VERSION  = 0.1
 JH_NAME = jupyterhub
-JH_REPO = kempspo/apps:$(JH_NAME)-$(VERSION)
+JH_REPO = kemppo/apps:$(JH_NAME)-$(VERSION)
 
 docker-build:
 	docker build . --rm -t $(JH_REPO)
