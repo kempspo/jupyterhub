@@ -22,7 +22,7 @@ c.JupyterHub.admin_access = True
 #      "unix+http://%2Fsrv%2Fjupyterhub%2Fjupyterhub.sock"
 #  
 #  .. versionadded:: 0.9
-c.JupyterHub.hub_bind_url = 'http://0.0.0.0:8081'
+# c.JupyterHub.hub_bind_url = 'http://0.0.0.0:8081'
 
 ## The URL for connecting to the Hub. Spawners, services, and the proxy will
 #  use this URL to talk to the Hub.
