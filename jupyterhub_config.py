@@ -35,7 +35,7 @@ c.JupyterHub.hub_bind_url = 'http://0.0.0.0:8081'
 #      JupyterHub.hub_bind_url
 #  
 #  .. versionadded:: 0.9
-c.JupyterHub.hub_connect_url = environ['HUB_CONNECT_URL']
+#c.JupyterHub.hub_connect_url = environ['HUB_CONNECT_URL']
 
 ## The public facing port of the proxy.
 #  
