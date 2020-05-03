@@ -4,7 +4,7 @@
 from os import environ
 from json import loads
 from ast import literal_eval
-from oauthenticator.github import GitHubOAuthenticator
+from oauthenticator.github import LocalGitHubOAuthenticator
 from kubespawner.spawner import KubeSpawner
 
 ## Grant admin users permission to access single-user servers.
