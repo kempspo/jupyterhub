@@ -282,6 +282,7 @@ c.JupyterHub.authenticator_class = LocalGitHubOAuthenticator
 c.LocalGitHubOAuthenticator.oauth_callback_url = environ['OAUTH_CALLBACK_URL']
 c.LocalGitHubOAuthenticator.client_id = environ['OAUTH_CLIENT_ID']
 c.LocalGitHubOAuthenticator.client_secret = environ['OAUTH_CLIENT_SECRET']
+c.Authenticator.whitelist = environ['WHITELIST']
 # c.GoogleOAuthenticator.hosted_domain = ['firstcircle.com']
 
 ## Automatically begin the login process
