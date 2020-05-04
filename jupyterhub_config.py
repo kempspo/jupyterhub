@@ -4,7 +4,7 @@
 from os import environ
 from json import loads
 from ast import literal_eval
-from oauthenticator.github import LocalGitHubOAuthenticator
+from oauthenticator.google import LocalGoogleOAuthenticator
 from kubespawner.spawner import KubeSpawner
 
 ## Grant admin users permission to access single-user servers.
@@ -22,7 +22,7 @@ c.JupyterHub.admin_access = True
 #      "unix+http://%2Fsrv%2Fjupyterhub%2Fjupyterhub.sock"
 #  
 #  .. versionadded:: 0.9
-# c.JupyterHub.hub_bind_url = 'http://0.0.0.0:8081'
+c.JupyterHub.hub_bind_url = 'http://0.0.0.0:8081'
 
 ## The URL for connecting to the Hub. Spawners, services, and the proxy will
 #  use this URL to talk to the Hub.
@@ -35,7 +35,7 @@ c.JupyterHub.admin_access = True
 #      JupyterHub.hub_bind_url
 #  
 #  .. versionadded:: 0.9
-#c.JupyterHub.hub_connect_url = environ['HUB_CONNECT_URL']
+c.JupyterHub.hub_connect_url = environ['HUB_CONNECT_URL']
 
 ## The public facing port of the proxy.
 #  
@@ -276,13 +276,13 @@ c.KubeSpawner.http_timeout = 60 * 10
 #  
 #  Defaults to an empty set, in which case no user has admin access.
 c.Authenticator.admin_users = set(literal_eval(environ['ADMIN_LIST']))
+c.Authenticator.whitelist = set(literal_eval(environ['WHITELIST']))
 
 # Google OAuth Implementation
-c.JupyterHub.authenticator_class = LocalGitHubOAuthenticator
-c.LocalGitHubOAuthenticator.oauth_callback_url = environ['OAUTH_CALLBACK_URL']
-c.LocalGitHubOAuthenticator.client_id = environ['OAUTH_CLIENT_ID']
-c.LocalGitHubOAuthenticator.client_secret = environ['OAUTH_CLIENT_SECRET']
-c.Authenticator.whitelist = set(literal_eval(environ['WHITELIST']))
+c.JupyterHub.authenticator_class = LocalGoogleOAuthenticator
+c.LocalGoogleOAuthenticator.oauth_callback_url = environ['OAUTH_CALLBACK_URL']
+c.LocalGoogleOAuthenticator.client_id = environ['OAUTH_CLIENT_ID']
+c.LocalGoogleOAuthenticator.client_secret = environ['OAUTH_CLIENT_SECRET']
 # c.GoogleOAuthenticator.hosted_domain = ['firstcircle.com']
 
 ## Automatically begin the login process
@@ -296,7 +296,7 @@ c.Authenticator.whitelist = set(literal_eval(environ['WHITELIST']))
 #  .. versionadded:: 0.8
 c.Authenticator.auto_login = True
 
-## The command to use for creating users as a list of strings
+## The command to use for creating users as a list of string
 #  
 #  For each element in the list, the string USERNAME will be replaced with the
 #  user's username. The username will also be appended as the final argument.
