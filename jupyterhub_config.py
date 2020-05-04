@@ -275,8 +275,8 @@ c.KubeSpawner.http_timeout = 60 * 10
 #  Admin access should be treated the same way root access is.
 #  
 #  Defaults to an empty set, in which case no user has admin access.
-c.Authenticator.admin_users = set(literal_eval(environ['ADMIN_LIST']))
-c.Authenticator.whitelist = set(literal_eval(environ['WHITELIST']))
+c.Authenticator.admin_users = set(environ['ADMIN_LIST'])
+c.Authenticator.whitelist = set(environ['WHITELIST'])
 
 # Google OAuth Implementation
 c.JupyterHub.authenticator_class = LocalGoogleOAuthenticator
