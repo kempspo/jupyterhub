@@ -151,12 +151,12 @@ for i in environ_blacklist:
 
 # KubeSpawner config settings (volume mounts and passing env variables)
 c.KubeSpawner.environment = environ_list
-# c.KubeSpawner.volume_mounts = [
+c.KubeSpawner.volume_mounts = [
 #     {"mountPath": "/home/portal", "name": "portal"},
 #     {"mountPath": "/home/shared", "name": "shared"},
 #     {"mountPath": "/home/public", "name": "public"},
 #     {"mountPath": "/home/{username}", "name": "home"},
-#     {"mountPath": "/var/run/docker.sock", "name": "docker"},
+    {"mountPath": "/var/run/docker.sock", "name": "docker"}
 #     {"mountPath": "/mnt/envs", "name": "envs"},
 #     {"mountPath": "/home/jovyan", "name": "jovyan"},
 #     {"mountPath": "/var/spool/cron/crontabs", "name": "crontabs"},
@@ -164,8 +164,8 @@ c.KubeSpawner.environment = environ_list
 #     {"mountPath": "/home/airflow/envs/{username}", "name": "airflow-envs"},
 #     {"mountPath": "/home/airflow/dags/shared", "name": "shared-airflow-dags"},
 #     {"mountPath": "/home/airflow/envs/shared", "name": "shared-airflow-envs"}
-# ]
-# c.KubeSpawner.volumes = [
+]
+c.KubeSpawner.volumes = [
 #     {
 #         "name": "home",
 #         "hostPath": {
@@ -201,13 +201,13 @@ c.KubeSpawner.environment = environ_list
 #             "type": "DirectoryOrCreate"
 #         }
 #     },
-#     {
-#         "name": "docker",
-#         "hostPath": {
-#             "path": "/var/run/docker.sock",
-#             "type": "Socket"
-#         }
-#     },
+    {
+        "name": "docker",
+        "hostPath": {
+            "path": "/var/run/docker.sock",
+            "type": "Socket"
+        }
+    }
 #     {
 #         "name": "public",
 #         "hostPath": {
@@ -250,7 +250,7 @@ c.KubeSpawner.environment = environ_list
 #             "type": "DirectoryOrCreate"
 #         }
 #     }
-# ]
+]
 
 c.KubeSpawner.profile_list = loads(environ['SPAWN_LIST'])
 
