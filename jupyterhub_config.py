@@ -51,12 +51,11 @@ c.JupyterHub.port = 8000
 #  Should be a subclass of Spawner.
 c.JupyterHub.spawner_class = KubeSpawner
 
-
 # This allows people to name the servers and thus spin up multiple servers.
 c.JupyterHub.allow_named_servers = True
 
 # KuberSpawner config statements
-c.KubeSpawner.image = 'jupyter/datascience-notebook:4cdbc9cdb7d1'
+c.KubeSpawner.image = 'jupyter/all-spark-notebook:bfb2be718a58'
 c.KubeSpawner.namespace = environ['CLOUD66_STACK_NAMESPACE']
 
 # This is the docker image pull secrets to pull from private repos.
@@ -283,7 +282,7 @@ c.JupyterHub.authenticator_class = LocalGoogleOAuthenticator
 c.LocalGoogleOAuthenticator.oauth_callback_url = environ['OAUTH_CALLBACK_URL']
 c.LocalGoogleOAuthenticator.client_id = environ['OAUTH_CLIENT_ID']
 c.LocalGoogleOAuthenticator.client_secret = environ['OAUTH_CLIENT_SECRET']
-# c.GoogleOAuthenticator.hosted_domain = ['firstcircle.com']
+c.GoogleOAuthenticator.hosted_domain = ['gmail.com']
 
 ## Automatically begin the login process
 #  
@@ -330,4 +329,3 @@ c.KubeSpawner.service_account = 'default'
 c.KubeSpawner.extra_labels = {
     'username': '{username}'
 }
-
