@@ -1,4 +1,4 @@
-VERSION  = 0.1
+VERSION  = 0.1.1
 JH_NAME = jupyterhub
 JH_REPO = kemppo/apps:$(JH_NAME)-$(VERSION)
 

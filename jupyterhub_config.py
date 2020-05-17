@@ -71,7 +71,6 @@ rstudio_environ = {
 # Merge current environ list with the additional RStudio environs.
 environ_list = {**rstudio_environ, **environ}
 
-
 # Blacklist of environment variables that should not be passed down to the 
 # individual single servers.
 environ_blacklist = [
@@ -154,7 +153,7 @@ c.KubeSpawner.volume_mounts = [
 #     {"mountPath": "/home/portal", "name": "portal"},
 #     {"mountPath": "/home/shared", "name": "shared"},
 #     {"mountPath": "/home/public", "name": "public"},
-#     {"mountPath": "/home/{username}", "name": "home"},
+    # {"mountPath": "/home/{username}", "name": "home"},
     {"mountPath": "/var/run/docker.sock", "name": "docker"}
 #     {"mountPath": "/mnt/envs", "name": "envs"},
 #     {"mountPath": "/home/jovyan", "name": "jovyan"},
@@ -165,13 +164,13 @@ c.KubeSpawner.volume_mounts = [
 #     {"mountPath": "/home/airflow/envs/shared", "name": "shared-airflow-envs"}
 ]
 c.KubeSpawner.volumes = [
-#     {
-#         "name": "home",
-#         "hostPath": {
-#             "path": "/mnt/data-store/home/{username}",
-#             "type": "DirectoryOrCreate"
-#         }
-#     },
+    # {
+    #     "name": "home",
+    #     "hostPath": {
+    #         "path": "/mnt/data-store/home/{username}",
+    #         "type": "DirectoryOrCreate"
+    #     }
+    # },
 #     {
 #         "name": "crontabs",
 #         "hostPath": {
