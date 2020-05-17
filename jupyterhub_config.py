@@ -11,6 +11,7 @@ from kubespawner.spawner import KubeSpawner
 #  
 #  Users should be properly informed if this is enabled.
 c.JupyterHub.admin_access = True
+c.JupyterHub.cookie_secret = environ['OAUTH2_PROXY_COOKIE_SECRET']
 
 ## The URL on which the Hub will listen. This is a private URL for internal
 #  communication. Typically set in combination with hub_connect_url. If a unix
