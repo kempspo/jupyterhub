@@ -281,7 +281,7 @@ c.JupyterHub.authenticator_class = LocalGoogleOAuthenticator
 c.LocalGoogleOAuthenticator.oauth_callback_url = environ['OAUTH_CALLBACK_URL']
 c.LocalGoogleOAuthenticator.client_id = environ['OAUTH_CLIENT_ID']
 c.LocalGoogleOAuthenticator.client_secret = environ['OAUTH_CLIENT_SECRET']
-c.GoogleOAuthenticator.hosted_domain = ['gmail.com','firstcircle.com']
+c.GoogleOAuthenticator.hosted_domain = ['gmail.com']
 
 ## Automatically begin the login process
 #  
