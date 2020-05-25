@@ -155,11 +155,11 @@ c.KubeSpawner.volume_mounts = [
 #     {"mountPath": "/home/public", "name": "public"},
     {"mountPath": "/home/{username}", "name": "home"},
     {"mountPath": "/var/run/docker.sock", "name": "docker"},
-    {"mountPath": "/mnt/envs", "name": "envs"}
+    {"mountPath": "/mnt/envs", "name": "envs"},
 #     {"mountPath": "/home/jovyan", "name": "jovyan"},
 #     {"mountPath": "/var/spool/cron/crontabs", "name": "crontabs"},
 #     {"mountPath": "/home/airflow/dags/{username}", "name": "airflow-dags"},
-#     {"mountPath": "/home/airflow/envs/{username}", "name": "airflow-envs"},
+    {"mountPath": "/home/envs/{username}", "name": "airflow-envs"}
 #     {"mountPath": "/home/airflow/dags/shared", "name": "shared-airflow-dags"},
 #     {"mountPath": "/home/airflow/envs/shared", "name": "shared-airflow-envs"}
 ]
@@ -219,7 +219,7 @@ c.KubeSpawner.volumes = [
             "path": "/mnt/data-store/envs",
             "type": "DirectoryOrCreate"
         }
-    }
+    },
 #     {
 #         "name": "airflow-dags",
 #         "hostPath": {
@@ -227,13 +227,13 @@ c.KubeSpawner.volumes = [
 #             "type": "DirectoryOrCreate"
 #         }
 #     },
-#     {
-#         "name": "airflow-envs",
-#         "hostPath": {
-#             "path": "/mnt/data-store/airflow/envs/{username}",
-#             "type": "DirectoryOrCreate"
-#         }
-#     },
+    {
+        "name": "airflow-envs",
+        "hostPath": {
+            "path": "/mnt/data-store/airflow/envs/{username}",
+            "type": "DirectoryOrCreate"
+        }
+    }
 #     {
 #         "name": "shared-airflow-dags",
 #         "hostPath": {
