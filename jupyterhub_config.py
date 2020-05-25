@@ -230,7 +230,7 @@ c.KubeSpawner.volumes = [
     {
         "name": "airflow-envs",
         "hostPath": {
-            "path": "/mnt/data-store/airflow/envs/{username}",
+            "path": "/mnt/data-store/envs/{username}",
             "type": "DirectoryOrCreate"
         }
     }
