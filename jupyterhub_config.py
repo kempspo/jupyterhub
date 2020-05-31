@@ -150,18 +150,10 @@ for i in environ_blacklist:
 # KubeSpawner config settings (volume mounts and passing env variables)
 c.KubeSpawner.environment = environ_list
 c.KubeSpawner.volume_mounts = [
-#     {"mountPath": "/home/portal", "name": "portal"},
-#     {"mountPath": "/home/shared", "name": "shared"},
-#     {"mountPath": "/home/public", "name": "public"},
     {"mountPath": "/home/{username}", "name": "home"},
     {"mountPath": "/var/run/docker.sock", "name": "docker"},
     {"mountPath": "/mnt/envs", "name": "envs"},
-#     {"mountPath": "/home/jovyan", "name": "jovyan"},
-#     {"mountPath": "/var/spool/cron/crontabs", "name": "crontabs"},
-#     {"mountPath": "/home/airflow/dags/{username}", "name": "airflow-dags"},
     {"mountPath": "/home/envs/{username}", "name": "airflow-envs"}
-#     {"mountPath": "/home/airflow/dags/shared", "name": "shared-airflow-dags"},
-#     {"mountPath": "/home/airflow/envs/shared", "name": "shared-airflow-envs"}
 ]
 c.KubeSpawner.volumes = [
     {
@@ -171,34 +163,6 @@ c.KubeSpawner.volumes = [
             "type": "DirectoryOrCreate"
         }
     },
-#     {
-#         "name": "crontabs",
-#         "hostPath": {
-#             "path": "/mnt/data-store/crontabs/{username}",
-#             "type": "DirectoryOrCreate"
-#         }
-#     },
-#     {
-#         "name": "shared",
-#         "hostPath": {
-#             "path": "/mnt/data-store/shared",
-#             "type": "DirectoryOrCreate"
-#         }
-#     },
-#     {
-#         "name": "jovyan",
-#         "hostPath": {
-#             "path": "/mnt/data-store/jovyan",
-#             "type": "DirectoryOrCreate"
-#         }
-#     },
-#     {
-#         "name": "portal",
-#         "hostPath": {
-#             "path": "/mnt/data-store/portal",
-#             "type": "DirectoryOrCreate"
-#         }
-#     },
     {
         "name": "docker",
         "hostPath": {
@@ -206,13 +170,6 @@ c.KubeSpawner.volumes = [
             "type": "Socket"
         }
     },
-#     {
-#         "name": "public",
-#         "hostPath": {
-#             "path": "/mnt/data-store/public",
-#             "type": "DirectoryOrCreate"
-#         }
-#     },
     {
         "name": "envs",
         "hostPath": {
@@ -220,13 +177,6 @@ c.KubeSpawner.volumes = [
             "type": "DirectoryOrCreate"
         }
     },
-#     {
-#         "name": "airflow-dags",
-#         "hostPath": {
-#             "path": "/mnt/data-store/airflow/dags/{username}",
-#             "type": "DirectoryOrCreate"
-#         }
-#     },
     {
         "name": "airflow-envs",
         "hostPath": {
@@ -234,20 +184,6 @@ c.KubeSpawner.volumes = [
             "type": "DirectoryOrCreate"
         }
     }
-#     {
-#         "name": "shared-airflow-dags",
-#         "hostPath": {
-#             "path": "/mnt/data-store/airflow/dags/shared",
-#             "type": "DirectoryOrCreate"
-#         }
-#     },
-#     {
-#         "name": "shared-airflow-envs",
-#         "hostPath": {
-#             "path": "/mnt/data-store/airflow/envs/shared",
-#             "type": "DirectoryOrCreate"
-#         }
-#     }
 ]
 
 c.KubeSpawner.profile_list = loads(environ['SPAWN_LIST'])
